@@ -1,7 +1,10 @@
 <!-- 
+   "Calendar 5318", v.0.1.2
+   seabrus, https://github.com/seabrus
+   MIT license
 
- See the calendar container 
- starting from the line 65 below
+ See the calendar container description:
+    the line 70 below
 
 -->
 
@@ -11,12 +14,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Calendar 5318</title>
+    <title>Calendar 5318 | Demo</title>
+    <meta name="description" content="Demo of the Datepicker Calendar 5318">
 
-	<link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">    <!-- Bootstrap 3.3.1 (http://getbootstrap.com) -->
-	<link href="css/style.css" rel="stylesheet" type="text/css" />	
-	<link href="css/calendar.css" rel="stylesheet" type="text/css" />
-	
+    <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">    <!-- Bootstrap 3.3.1 (http://getbootstrap.com) -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />  
+    <link href="css/calendar.css" rel="stylesheet" type="text/css" />
+    
     <script src="../../jq/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="js/init-modal.js" type="text/javascript"></script>
     <script src="js/calendar.js" type="text/javascript"></script>
@@ -28,11 +32,11 @@
       <script src="../../bootstrap/assets/js/respond_1-4-2.min.js"></script>
     <![endif]-->
   </head>
-
+  
   <body>
     <div class="container-fluid">
         <div class="col-xs-12 col-md-12 main">
-		    <button type="button" class="btn btn-primary btn-sm  new-record-btn" data-toggle="modal" data-target="#modal-add-dlg">Click to open a modal window with the calendar - W</button>
+            <button type="button" class="btn btn-primary btn-sm  new-record-btn" data-toggle="modal" data-target="#modal-add-dlg">Click to open a modal window with the calendar - W</button>
         </div>
     </div>
 
@@ -62,12 +66,14 @@
             <div class="control-group">
               <label class="control-label" for="buy-date">Date:</label>
 
-<!-- *** The calendar container *** -->
-        <div class="controls   calendar-box">    <!-- Outer DIV with the class="calendar-box" -->
-            <input type="text" id="buy-date" placeholder="01-01-2015" class="form-control input-medium" required=""><img src="img/calendar.png" alt="Calendar icon" title="Click to open the calendar" class="calendar-img">    <!-- INPUT field for the date and the calendar icon with the class="calendar-img" -->
-		    <div class="calendar"></div>     <!-- DIV for the calendar itself with the class="calendar" -->
+<!-- =============================== -->
+<!--     The calendar container     -->
+        <div class="controls   calendar-box">    <!-- Outer DIV with the mandatory class="calendar-box" -->
+            <input type="text" id="buy-date" placeholder="01-01-2015" class="form-control input-medium" required=""><img src="img/calendar.png" alt="Calendar icon" title="Click to open the calendar" class="calendar-img">    <!-- The target INPUT field for the date --><!-- Calendar icon with the mandatory class="calendar-img" -->
+            <div class="calendar"></div>     <!-- DIV for the calendar itself with the mandatory class="calendar" . NOTE: it's placed AFTER the relative INPUT -->
         </div>
-<!-- *** The end of the calendar *** -->
+<!--     The end of the calendar     -->
+<!-- =============================== -->
 
             </div>
 
@@ -81,7 +87,7 @@
             <div class="control-group">
               <label class="control-label" for="comment">Comment:</label>
               <div class="controls">
-				<textarea rows="3" cols="50" id="comment" placeholder="cool" class="form-control input-medium"></textarea>
+                <textarea rows="3" cols="50" id="comment" placeholder="cool" class="form-control input-medium"></textarea>
               </div>
             </div>
            </fieldset>
@@ -90,8 +96,10 @@
 
          <!-- HELP   Tab -->
          <div class="tab-pane in" id="help-tab">
-			<p><br>...</p>
-       		<p style="text-align:center;"><br>Thank you!</p>
+            <p><br> Datepicker "Calendar 5318", v. 0.1.2
+                   <br> <a href="https://github.com/seabrus">seabrus</a>
+                   <br> MIT license</p>
+            <p style="text-align:center;"><br>Thank you!</p>
          </div>  <!-- end tab-->
 
         </div>

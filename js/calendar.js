@@ -1,18 +1,20 @@
-/**
+/*
    "Calendar 5318", v.0.1.2
    seabrus, https://github.com/seabrus
    MIT license
 */
 
+
 // Calendar constructor
 function Calendar() { };
 	
 // ===============================================
-// Main function: Calendar calculation and presentation
+// Main method: Calendar calculation and presentation 
+//     Vanilla JavaScript (no jQuery)
 // ==========================================================
-//    Parameters:
-//       mm 	- month to calculate the calendar for:   an integer, [0-11]
-//       yyyy    - year:   an integer, [1-4999]
+//     Parameters:
+//       mm     -- month:   an integer, [0-11]
+//       yyyy   -- year:   an integer, [1-4999]
 // ==========================================================
 Calendar.prototype.calcCalendar = function( mm, yyyy ) {
 
@@ -58,7 +60,7 @@ Calendar.prototype.calcCalendar = function( mm, yyyy ) {
 				dayText = ''; 
 			}
 			else {
-				pickedDay = '' + addZero(day) + '-' + addZero(month + 1) + '-' + year;
+				pickedDay = '' + addZero(day) + '-' + addZero(month + 1) + '-' + year;     // Format of Date: now it is set to   DD-MM-YYYY
 				dayText = '' + day; 
 				day++; 
 			}
@@ -78,21 +80,21 @@ Calendar.prototype.calcCalendar = function( mm, yyyy ) {
 
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-//     CALENDAR events
+//     Functions to handle CALENDAR events   ( jQuery is used ) 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 // ========================
 // Show / hide the calendar
 // =============================================================
 //    Parameters:
-//       cDiv 		- jQuery object that specifies the calendar DIV -- like $('.calendar')
+//       cDiv   -- a jQuery object that specifies the calendar DIV -- like $('.calendar')
 // =============================================================
 Calendar.prototype.show = function( cDiv ) {
 
 	if ( cDiv.css('display') === 'none' ) {
 		var now = new Date();
 		cDiv.html( this.calcCalendar( now.getMonth(), now.getFullYear() ) );
-		cDiv.data( 'current-month', now.getMonth() ); 
+		cDiv.data( 'current-month', now.getMonth() );     // Save the month and year to know them if the user will want to change them
 		cDiv.data( 'current-year', now.getFullYear() ); 
 		cDiv.css( 'display', 'block' ); 
 	}
@@ -108,8 +110,8 @@ Calendar.prototype.show = function( cDiv ) {
 // Change a month or year
 // =============================================================================
 //    Parameters:
-//       button 	- jQuery object that corresponds to the button clicked to change a month or year
-//       cDiv 		- jQuery object that specifies the calendar DIV -- like $('.calendar')
+//       button	  -- a jQuery object that corresponds to the button clicked to change a month or year
+//       cDiv	  -- a jQuery object that specifies the calendar DIV -- like $('.calendar')
 // =============================================================================
 Calendar.prototype.changeMonthYear = function ( button, cDiv ) {
 	var month = cDiv.data( 'current-month' ) || 0,
@@ -143,11 +145,22 @@ Calendar.prototype.changeMonthYear = function ( button, cDiv ) {
 }	
 
 // ========================
+// Pick the date
+// =============================================================================
+//    Parameters:
+//       tdPicked	  -- a jQuery object that specifies the picked (clicked) <td> in the calendar table
+// =============================================================================
+Calendar.prototype.pickDate = function ( tdPicked ) {
+		return tdPicked.attr('data-picked-day');
+}
+
+
+// ========================
 // Close all opened calendars
 // =============================================================================
 Calendar.prototype.closeCalendar = function () {
 	var cDiv;
-	var cDivs = $('.calendar');   // There can be present more then one calendar <div> on a page
+	var cDivs = $('.calendar');     // There can be present more then one calendar <div> on a page
 
 	for( var i=0, len=cDivs.length; i< len; i++ ) {
 		cDiv = cDivs.eq(i);
