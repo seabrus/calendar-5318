@@ -14,8 +14,6 @@
 /*	width: 87%; */
 	width: calc(100% - 32px);
 	display:inline;
-/* background: url(img/calendar2.png) no-repeat right top;
-padding-right: 32px; */
 }
 .calendar-box .calendar-img {
 	display:inline-block;
