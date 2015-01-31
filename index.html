@@ -64,6 +64,79 @@ One day I needed a datepicker. My application was developed on a basis of jQuery
       </section>
     </div>
 
+
+<!-- Modal dialog -->
+<div class="modal bs-modal-sm" id="modal-add-dlg" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <div class="modal-header" style="border:none;margin-bottom:-30px;">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <br>
+        <div class="bs-example bs-example-tabs">
+            <ul id="modal-dlg-tab" class="nav nav-tabs">
+              <li class="active"><a href="#new-record-tab" data-toggle="tab">New record</a></li>
+              <li class=""><a href="#help-tab" data-toggle="tab">Help</a></li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div id="modal-dlg-tab-content" class="tab-content">
+
+         <div class="tab-pane active in" id="new-record-tab">
+          <form class="form-horizontal">
+           <fieldset>
+            <div class="control-group">
+              <label class="control-label" for="buy-date">Date:</label>
+
+<!--     The calendar container     -->
+        <div class="controls   calendar-box">    <!-- Outer DIV with the mandatory class="calendar-box" -->
+            <input type="text" id="buy-date" placeholder="01-01-2015" class="form-control input-medium" required=""><img src="https://github.com/seabrus/calendar-5318/blob/master/img/calendar.png" alt="Calendar icon" title="Click to open the calendar" class="calendar-img">    <!-- The target INPUT field for the date --><!-- Calendar icon with the mandatory class="calendar-img" -->
+            <div class="calendar"></div>     <!-- DIV for the calendar itself with the mandatory class="calendar" . NOTE: it's placed AFTER the relative INPUT -->
+        </div>
+<!--     The end of the calendar     -->
+
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="sum">Sum:</label>
+              <div class="controls">
+                <input type="number" min="0" id="sum" placeholder="300" class="form-control input-medium" required="">
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="comment">Comment:</label>
+              <div class="controls">
+                <textarea rows="3" cols="50" id="comment" placeholder="cool" class="form-control input-medium"></textarea>
+              </div>
+            </div>
+           </fieldset>
+          </form>
+         </div>
+
+         <!-- HELP   Tab -->
+         <div class="tab-pane in" id="help-tab">
+            <p><br> Datepicker "Calendar 5318", v. 0.1.2
+                   <br> <a href="https://github.com/seabrus">seabrus</a>
+                   <br> MIT license</p>
+            <p style="text-align:center;"><br>Thank you!</p>
+         </div>  <!-- end tab-->
+
+        </div>
+      </div>
+
+      <div class="modal-footer" style="text-align:center;">
+         <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
