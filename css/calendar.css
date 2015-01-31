@@ -1,0 +1,80 @@
+/**
+   CALENDAR 5318, v.0.1.0
+   seabrus, https://github.com/seabrus
+   MIT license
+*/
+
+/***   CSS for the calendar container   ***/
+.calendar-box {
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+.calendar-box input {
+/*	width: 87%; */
+	width: calc(100% - 32px);
+	display:inline;
+/* background: url(img/calendar2.png) no-repeat right top;
+padding-right: 32px; */
+}
+.calendar-box .calendar-img {
+	display:inline-block;
+	float: right;
+}
+
+/***   CSS for the calendar itself   ***/
+.calendar {
+	position: absolute;
+	top: 35px;
+	left: 0px;
+	z-index: 1099;
+	display: none; 
+	background-color: #ddeeff;
+	padding: 10px 10px 10px 10px;
+	border: 1px solid #337AB7;
+	border-radius: 10px;
+}
+.calendar .calendar-header {
+	background-color: #ffffff;
+	width:100%;
+}
+.calendar .calendar-header-left {
+	display:inline-block;
+	float:left;
+	font-weight:bold;
+	background-color: #ffffff;
+	width:6.9em;   /* 90px */
+	text-align:center;
+}
+.calendar .calendar-header-right {
+	display:inline-block;
+	float:right;
+	font-weight:bold;
+	background-color: #ffffff;
+}
+.calendar .lessen-month, .lessen-year, .add-month, .add-year {
+	cursor:pointer;
+}
+.calendar .lessen-month {
+	display:inline-block;
+	float:left;
+}
+.calendar .add-month {
+	display:inline-block;
+	float:right;
+}
+.calendar .calendar-table {
+	text-align: center;
+	margin: 10px 0 0 0;
+	background-color: #ffffff;
+}
+.calendar thead th {
+	width:10%;
+	text-align:center;
+	padding: 0 7px 0 7px;
+}
+.calendar tbody td {
+	text-align:center;
+	padding: 0 7px 0 7px;
+	cursor:pointer;
+}
