@@ -7,9 +7,9 @@
  *   in a jQuery-based program
  *   
  */
-
+alert("INIT-MoDAL");
 $( document ).ready( function() {
-alert("READY");
+
 	// Initiation of the calendar
     var calendar = new Calendar();
 
