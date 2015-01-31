@@ -9,7 +9,7 @@
  */
 
 $( document ).ready( function() {
-
+alert("READY");
 	// Initiation of the calendar
     var calendar = new Calendar();
 
