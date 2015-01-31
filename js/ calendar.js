@@ -4,7 +4,7 @@
    MIT license
 */
 
-
+alert('Calendar');
 // Calendar constructor
 function Calendar() { };
 	
