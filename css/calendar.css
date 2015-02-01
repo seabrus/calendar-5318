@@ -68,9 +68,10 @@
 }
 .calendar thead th {
 	width:10%;
-	background-color: #eeeeee;	
+	padding: 0 7px 0 7px;	
+	background-color: #eeeeee;
 	text-align:center;
-	padding: 0 7px 0 7px;
+	font-weight:bold;
 }
 .calendar tbody td {
 	text-align:center;
