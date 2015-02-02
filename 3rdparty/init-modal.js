@@ -28,6 +28,7 @@ $( document ).ready( function() {
 		var tdPicked = $(this);
 		var inputElt = tdPicked.parents('.calendar').prevAll('input');
 		inputElt.val( calendar.pickDate( tdPicked ) );
+		calendar.closeCalendar();
 	});
 	
 	// Recalculation after the month or year is changed. Controls that allow such changes have the class="change-calendar" 
