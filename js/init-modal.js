@@ -7,7 +7,8 @@
 $( document ).ready( function() {
 
     // Initiation of the calendar
-	$('#buy-date').calendar5318();
+//	$('#buy-date').calendar5318();
+	$('input[type="text"]').calendar5318();
 
 
 

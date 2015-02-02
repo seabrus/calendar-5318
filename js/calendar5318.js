@@ -8,74 +8,78 @@
     
     $.fn.calendar5318 = function() {
 
-	// =======================================================================
-	//     Calendar wrapper preparation
-	// =======================================================================
+    // =======================================================================
+    //     Calendar wrapper preparation
+    // =======================================================================
         // Build a calendar wrapper DIV's
-        this.wrap( '<div class="calendar-box"></div>' );
-        this.wrap( '<div class="calendar-img-box"></div>' );
-        $('.calendar-img-box').append( '<img src="img/calendar.png" alt="Calendar icon" title="Click to open the calendar" class="calendar-img">' );
-        $('.calendar-box').append( '<div class="calendar"></div>' );
+        this.each( function() {
+            var $element = $(this);
+            $element.wrap( '<div class="calendar-box"></div>' );
+            $element.wrap( '<div class="calendar-img-box"></div>' );
+            $element.parent('.calendar-img-box').append( '<img src="img/calendar.png" alt="Calendar icon" title="Click to open the calendar" class="calendar-img">' );
+            $element.parents('.calendar-box').append( '<div class="calendar"></div>' );
 
- /*        // Recalculate input width and position of the calendar
-        var inputBox = this.get(0).getBoundingClientRect();
-        var inputWidth = Math.round( inputBox.right - inputBox.left );
-        var inputHeight = Math.round( inputBox.bottom - inputBox.top );
-        if ( inputWidth != 0   &&   inputHeight != 0 ) {
-            this.css( { 'width': (inputWidth - 32) + 'px' } );
-            $('.calendar').css( { 'top': (inputHeight + 1) + 'px' } );          
-        }
-        else if {
-            var compStyle = window.getComputedStyle( this.get(0), null );
-        }
-*/
+	        // Recalculate width of the calculator container
+	        var inputBox = $element.get(0).getBoundingClientRect();
+	        var inputWidth = Math.round( inputBox.right - inputBox.left );
+	        var inputHeight = Math.round( inputBox.bottom - inputBox.top );
+	        if ( inputWidth != 0   &&   inputHeight != 0 ) {
+	            $element.parent('.calendar-img-box').css( { 'width': inputWidth + 'px' } );
+//	            $element.css( { 'width': (inputWidth - 32) + 'px' } );
+	        }
+//	        else if {
+//	            var compStyle = window.getComputedStyle( this.get(0), null );
+//	        }
+
+        });
 
 
         // Initiation of the calendar
         var calendar = new Calendar();
 
-	// =======================================================================
-	//     Calendar events
-	// =======================================================================
-		// Open a calendar by a click on the calendar icon with the class="calendar-img"
-		$('.calendar-img').on('click', function(event) {
-			// Calculate the top calendar position from the INPUT height
-			var inputBox = $(this).prevAll('input').get(0).getBoundingClientRect();
-			var inputHeight = Math.round( inputBox.bottom - inputBox.top );
-			$('.calendar').css( { 'top': (inputHeight + 1) + 'px' } );
-							
-			var calendarDiv = $(this).parents('.calendar-box').children('.calendar');
-			calendar.show( calendarDiv );
-			event.stopPropagation();
-		});
-		
-		// Date picking out from the calendar DIV with the class="calendar"
-		$('.calendar').on('click', 'td', function(event) {
-			var tdPicked = $(this);
-			var inputElt = tdPicked.parents('.calendar').prevAll('.calendar-img-box').children('input');
-			inputElt.val( calendar.pickDate( tdPicked ) );
-			calendar.closeCalendar();
-		});
-		
-		// Recalculation after the month or year is changed. Controls that allow such changes have the class="change-calendar" 
-		$('.calendar').on('click', '.change-calendar', function(event) {
-			var clickedButton = $(this);
-			var calendarDiv = clickedButton.parents('.calendar');
-			calendar.changeMonthYear( clickedButton, calendarDiv );
-		});
-	
-		// Closing when clicking on body except the calendar itself - see below
-		$('body').on('click', function() {
-			calendar.closeCalendar();
-		});
-	
-		// This allows avoiding the closing of the calendar when clicking within it
-		$('.calendar').on('click', function(event) {
-			event.stopPropagation();
-		});
-	// =======================================================================
-	//     END of the calendar events
-	// =======================================================================
+    // =======================================================================
+    //     Calendar events
+    // =======================================================================
+        // Open a calendar by a click on the calendar icon with the class="calendar-img"
+        $('.calendar-img').on('click', function(event) {
+            // Calculate the top calendar position on a basis of the INPUT height
+            var inputBox = $(this).prevAll('input').get(0).getBoundingClientRect();
+            var inputHeight = Math.round( inputBox.bottom - inputBox.top );
+            $('.calendar').css( { 'top': (inputHeight + 1) + 'px' } );
+//          $('.calendar').css( { 'top': ($(this).prevAll('input').height() + 1) + 'px' } );
+
+            var calendarDiv = $(this).parents('.calendar-box').children('.calendar');
+            calendar.show( calendarDiv );
+            event.stopPropagation();
+        });
+        
+        // Date picking out from the calendar DIV with the class="calendar"
+        $('.calendar').on('click', 'td', function(event) {
+            var tdPicked = $(this);
+            var inputElt = tdPicked.parents('.calendar').prevAll('.calendar-img-box').children('input');
+            inputElt.val( calendar.pickDate( tdPicked ) );
+            calendar.closeCalendar();
+        });
+        
+        // Recalculation after the month or year is changed. Controls that allow such changes have the class="change-calendar" 
+        $('.calendar').on('click', '.change-calendar', function(event) {
+            var clickedButton = $(this);
+            var calendarDiv = clickedButton.parents('.calendar');
+            calendar.changeMonthYear( clickedButton, calendarDiv );
+        });
+    
+        // Closing when clicking on body except the calendar itself - see below
+        $( window ).on('click', function() {
+            calendar.closeCalendar();
+        });
+    
+        // This allows avoiding the closing of the calendar when clicking within it
+        $('.calendar').on('click', function(event) {
+            event.stopPropagation();
+        });
+    // =======================================================================
+    //     END of the calendar events
+    // =======================================================================
 
 
 
@@ -153,9 +157,9 @@
         }
         
         
-	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	//     Functions to handle CALENDAR events   ( jQuery is used ) 
-	// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    //     Functions to handle CALENDAR events   ( jQuery is used ) 
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         
         // ========================
         // Show / hide the calendar
