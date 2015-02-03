@@ -1,6 +1,9 @@
 # Calendar 5318
 #### Datepicker That Doesn't Corrupt Your Data
 
+###Demo
+Try the demo [here](http://seabrus.github.io/calendar-5318/).
+
 ###Prehistory
 One day I needed a datepicker. My application was developed on a basis of jQuery and Bootstrap, so I looked for calendar widgets that worked under these frameworks. I tested two of such widgets and found that when initiating both of them corrupted my data (in "data-" attributes). So, I decided to develop a simple script that will be as tolerate to other code as possible.
 
@@ -14,9 +17,6 @@ The package includes the following files:
 
 In your HTML code don't forget to add links to the jQuery and Bootstrap files (see an example in index.html).
 
-###Demo
-Try the demo [here](http://seabrus.github.io/calendar-5318/).
- 
 ### Class vs. Widget
 
 This question is not about what is better. It's about why the _master_ branch contains a version on a basis of a class, while the _widget_ version is given only in the [widget](https://github.com/seabrus/calendar-5318/tree/widget) branch. The reason is explained in the prehistory: I wanted to make it as customizable as possible and gave the maximum degree of freedom for users. Therefore, the critical part of the package code -- the calendar calculation and main event handlers -- is developed as a separate class, so you should not bother about those details. All other code (.html, .css, and .js) is just to illustrate the idea and help you to understand how to use this class. So you can change that part of the package as you like.
