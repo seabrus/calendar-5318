@@ -14,6 +14,7 @@ The package includes the following files:
 
 In your HTML code don't forget to add links to the jQuery and Bootstrap files (see an example in index.html).
 
+###Demo
 Try the demo [here](http://seabrus.github.io/calendar-5318/).
  
 ### Class vs. Widget
