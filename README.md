@@ -1,13 +1,14 @@
 ## calendar-5318 - 0.1.4 (07/2015)
 
-In this version event listeners on calendar images and calendar Divs are added to the elements in the "this.each()" loop, rather than for general jQuery selections like $('.calendar-img').
+In this calendar version event listeners on calendar images and calendar `divs` are added to the elements in the `this.each()` loop, rather than for general jQuery selections like `$(".calendar-img")`.
 
-As a result, you can place calendars both on the page and modal dialogs which are opened and destroyed later without adding new event listeners to the calendars that already exist on the page. In other words, if you have several calendars on a page that are initialized by
+As a result, you can place calendars both on the page and modal dialogs which are opened and destroyed later and those modals would not add new event listeners to the calendars that already exist on the page. 
+In other words, if you have several calendars on a page that are initialized by
 ```js
     $('input[type="date"]').calendar5318();
 ```
-and then open a modal dialog with its own calendar on the `input[type="date"]` element, that new calendar initialization would NOT change anything in the existing calendars.
+and then open a modal dialog with its own calendar on the `input[type="date"]` element (don't forget to restrict the jQuery selection by the modal dialog HTML nodes only), that new calendar initialization would NOT change a number of event listeners in the existing calendars and would not duplicate them.
 
-#Wrapping Divs
-Sometimes the calendar icon could be placed out of the input. In this case just add a wrapping `<div>` to the input with width that is equal the width of the input itself.  
+#Wrapping `divs`
+Sometimes the calendar icon could be placed out of the input. In this case just add a wrapping `<div>` to the input with a width that is equal to the width of the input itself.  
 
