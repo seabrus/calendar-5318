@@ -9,6 +9,6 @@ In other words, if you have several calendars on a page that are initialized by
 ```
 and then open a modal dialog with its own calendar on the `input[type="date"]` element (don't forget to restrict the jQuery selection by the modal dialog HTML nodes only), that new calendar initialization would NOT change a number of event listeners in the existing calendars and would not duplicate them.
 
-#Wrapping `divs`
-Sometimes the calendar icon could be placed out of the input. In this case just add a wrapping `<div>` to the input with a width that is equal to the width of the input itself.  
+##Wrapping `divs`
+In this version the in-built wrapping `div` is flexible (responsive) rather than fixed. This could result in that for inline inputs the calendar icon could be placed out of the input. if this is the case, just add a wrapping `<div>` to the input with a width that is equal to the width of the input itself or/and with the style `display: inline-block`.
 
